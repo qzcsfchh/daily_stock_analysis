@@ -68,7 +68,7 @@ model_list:
   - model_name: volcengine/ark-code-latest
     litellm_params:
       model: volcengine/ark-code-latest
-      api_key: "os.environ/VOLC_API_KEY"
+      api_key: "os.environ/VOLCENGINE_API_KEY"
       api_base: https://ark.cn-beijing.volces.com/api/coding/v3
 
 # ===================================

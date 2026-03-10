@@ -188,6 +188,8 @@ jobs:
           echo "  AIHubMix Key:   $([ -n "$AIHUBMIX_KEY" ] && echo '✅ 已配置' || echo '⚪ 未配置')"
           echo "  OpenAI API Key: $([ -n "$OPENAI_API_KEY" ] && echo '✅ 已配置' || echo '⚪ 未配置')"
           echo "  Anthropic Key:  $([ -n "$ANTHROPIC_API_KEY" ] && echo '✅ 已配置' || echo '⚪ 未配置')"
+          echo "  LITELLM_CONFIG: $(echo $LITELLM_CONFIG && [ -f $LITELLM_CONFIG ] && echo '✅ 配置有效' || echo '⚪ 配置无效')"
+          echo "  LITELLM_MODEL: $LITELLM_MODEL"
           echo ""
           echo "【搜索引擎】"
           echo "  Bocha API Keys: $([ -n "$BOCHA_API_KEYS" ] && echo '✅ 已配置' || echo '⚪ 未配置')"

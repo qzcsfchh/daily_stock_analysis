@@ -66,6 +66,9 @@ jobs:
           GEMINI_MODEL: ${{ vars.GEMINI_MODEL || secrets.GEMINI_MODEL || 'gemini-3-flash-preview' }}
           GEMINI_MODEL_FALLBACK: ${{ vars.GEMINI_MODEL_FALLBACK || secrets.GEMINI_MODEL_FALLBACK || 'gemini-2.5-flash' }}
           GEMINI_REQUEST_DELAY: '3.0'
+          LITELLM_MODEL: ${{ vars.LITELLM_MODEL || secrets.LITELLM_MODEL }}
+          LITELLM_CONFIG: ${{ vars.LITELLM_CONFIG || secrets.LITELLM_CONFIG }}
+          LLM_CHANNELS: ${{ vars.LLM_CHANNELS || secrets.LLM_CHANNELS }}
           
           # AIHubMix（优先于 OPENAI_API_KEY，自动适配 base_url，推荐国内用户）
           AIHUBMIX_KEY: ${{ secrets.AIHUBMIX_KEY }}
@@ -188,7 +191,7 @@ jobs:
           echo "  AIHubMix Key:   $([ -n "$AIHUBMIX_KEY" ] && echo '✅ 已配置' || echo '⚪ 未配置')"
           echo "  OpenAI API Key: $([ -n "$OPENAI_API_KEY" ] && echo '✅ 已配置' || echo '⚪ 未配置')"
           echo "  Anthropic Key:  $([ -n "$ANTHROPIC_API_KEY" ] && echo '✅ 已配置' || echo '⚪ 未配置')"
-          echo "  LITELLM_CONFIG: $(echo $LITELLM_CONFIG && [ -f $LITELLM_CONFIG ] && echo '✅ 配置有效' || echo '⚪ 配置无效')"
+          echo "  LITELLM_CONFIG: $(echo "$LITELLM_CONFIG" && [[ -n "$LITELLM_CONFIG" && -f "$LITELLM_CONFIG" ]] && echo '✅ 配置有效' || echo '⚪ 配置无效')"
           echo "  LITELLM_MODEL: $LITELLM_MODEL"
           echo ""
           echo "【搜索引擎】"
